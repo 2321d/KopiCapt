@@ -86,19 +86,19 @@ checkoutButton.addEventListener('click', function(e){
     const data = new URLSearchParams(formData);
     const objData = Object.fromEntries(data);
     const message = formatMessage(objData);
-    const url = "https://api.whatsapp.com/send?phone=6281529463925&text=" + encodeURIComponent(message);
+    const url = "https://web.whatsapp.com/send?phone=6281529463925&text=" + encodeURIComponent(message);
     window.open(url, '_blank');
 });
 
 //format pesan wa
 const formatMessage = (obj) => {
-    return `Data Customer
-    Nama : ${obj.name}
-    Email : ${obj.email}
-    No Hp : ${obj.phone}
+    return `Data Customer :
+  - Nama : ${obj.name}
+  - Email : ${obj.email}
+  - No Hp : ${obj.phone}
 
-data Pesanan
-${JSON.parse(obj.items).map(item => `${item.name} (${item.quantity} x ${rupiah(item.total)}) \n`)}
+data Pesanan :
+${JSON.parse(obj.items).map(item => `  - ${item.name} (${item.quantity} x ${rupiah(item.total)})`).join('\n')}
 TOTAL: ${rupiah(obj.total)}
 Terima Kasih.;`
     
