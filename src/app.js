@@ -86,7 +86,7 @@ checkoutButton.addEventListener('click', function(e){
     const data = new URLSearchParams(formData);
     const objData = Object.fromEntries(data);
     const message = formatMessage(objData);
-    const url = "https://web.whatsapp.com/send?phone=6281529463925&text=" + encodeURIComponent(message);
+    const url = "https://api.whatsapp.com/send?phone=6281529463925&text=" + encodeURIComponent(message);
     window.open(url, '_blank');
 });
 
